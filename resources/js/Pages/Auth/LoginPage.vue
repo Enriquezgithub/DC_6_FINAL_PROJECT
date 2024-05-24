@@ -31,15 +31,7 @@ let hide = ()=>{
         <Head title="Login"/>
         <div class="w-full">
             <div class="border border-gray-400 w-[30%] p-4 min-h-[45vh] rounded mx-auto mt-40">
-                <div
-                v-if="$page.props.flash.message"
-                class="p-3  text-md text-green-800 rounded  border-green-700 bg-green-300"
-                role="alert"
-            >
-                <span class="font-medium">
-                    {{ $page.props.flash.message }}
-                </span>
-            </div>
+                
             <div v-if="$page.props.logout.message"     class="p-3  text-md text-green-800 rounded  border-green-700 bg-green-300"
                 role="alert">
                <span class="font-medium">

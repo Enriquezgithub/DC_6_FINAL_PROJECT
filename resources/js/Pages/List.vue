@@ -1,6 +1,6 @@
 <script setup>
   import Layout from '../Layouts/MyLayout.vue'
-  import {Head} from '@inertiajs/vue3'
+  import {Head, Link} from '@inertiajs/vue3'
   import {router} from '@inertiajs/vue3'
 
 
@@ -30,8 +30,21 @@
         <Head title="List"/>
 
             <div class="ml-20">
-                <h1 class="mb-5 text-3xl font-bold tracking-wide">Users</h1>
-        
+                <div class="flex mb-5 gap-5 items-center" v-if="$page.props.permissions.posts_manage">
+                    <h1 class="text-3xl font-bold tracking-wide">Users</h1>
+                    <Link href="registerPage" class="bg-blue-600 px-3 py-2 rounded text-white tracking-wide hover:opacity-85 transition ease-linear duration-125">Add User</Link>
+                </div>
+                
+                <div
+                v-if="$page.props.flash.message"
+                class="p-3  text-md text-green-800 rounded mb-3 border-green-700 bg-green-300"
+                role="alert"
+                >
+                    <span class="font-medium">
+                        {{ $page.props.flash.message }}
+                    </span>
+                </div>
+
                 <div
                     v-if="$page.props.edit.message"
                     class="p-3  text-md text-green-800 rounded w-[95%] mb-3 border-green-700 bg-green-300"
@@ -42,7 +55,13 @@
                     </span>
                 </div>
                 <div class="flex gap-2">
-                    <div v-for="users in users" class="border shadow-md p-2 rounded bg-white">
+                    <div v-for="users in users" class="border shadow-md p-2 rounded w-[20%] bg-white">
+                        <div v-if="users.id == 1">
+                            Admin
+                        </div>
+                        <div v-else="users.id != 1">
+                            User
+                        </div>
                         <div class="mb-1 text-3xl tracking-wider">
                             {{ users.name }}
                         </div>

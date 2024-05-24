@@ -34,7 +34,7 @@ defineOptions({
                     <h1 class=" text-3xl font-bold tracking-wider">Dashboard</h1>
                 </div>
                 <div class="mt-5 text-lg">
-                    <span class="text-red-600">Welcome</span> back {{ $page.props.user.name }}
+                    <span class="text-red-600">Welcome</span> back <span v-if="$page.props.permissions.posts_manage"> admin </span>{{ $page.props.user.name }}
                 </div>
            </div>
     

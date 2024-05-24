@@ -16,8 +16,8 @@
             <div>
                
                 <div class="flex">
-                    <Link href="landing" class="-ml-10 mr-3" :class="{'border-b border-blue-400 transition ease-linear duration-150' : $page.component == 'LandingPage'}">Home</Link>
-                    <Link href="list" class=" ml-1 mr-7" :class="{'border-b border-blue-400 transition ease-linear duration-150' : $page.component == 'List'}">List</Link>
+                    <Link href="landing" class="-ml-10 mr-5" :class="{'border-b border-blue-400 transition ease-linear duration-150' : $page.component == 'LandingPage'}">Home</Link>
+                    <Link href="list" v-if="$page.props.permissions.posts_manage" class=" ml-1 mr-7" :class="{'border-b border-blue-400 transition ease-linear duration-150' : $page.component == 'List'}">List</Link>
                     <div class="absolute top-4 -right-2 mr-4">
                         <div @click="dropDown()">
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">

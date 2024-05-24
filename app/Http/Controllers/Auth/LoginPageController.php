@@ -71,7 +71,7 @@ class LoginPageController extends Controller
         ]);
 
         if ($user->save()) {
-            return redirect('loginPage')->with('create', 'User Created Successfully');
+            return redirect('list')->with('create', 'User Created Successfully');
         }
         return redirect('registerPage')->with('error', 'User not Created');
     }
